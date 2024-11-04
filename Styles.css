@@ -159,6 +159,7 @@ body {
 #contact-form button:hover {
   background-color: #e53e2d;
 }
+
 /* Social Media Section */
 #social-media {
   padding: 50px;
@@ -191,3 +192,73 @@ body {
 .social-icons a:hover img {
   transform: scale(1.1);
 }
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: 80vh; /* Adjust height for smaller screens */
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr; /* Stack videos in one column */
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  #about,
+  #portfolio,
+  #testimonials,
+  #contact,
+  #social-media {
+    padding: 30px; /* Reduce padding for smaller screens */
+  }
+
+  #contact-form input, #contact-form textarea {
+    margin: 5px 0; /* Reduce margin for smaller screens */
+  }
+
+  .testimonial-slider {
+    flex-direction: column; /* Stack testimonials vertically */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  #contact-form button {
+    padding: 8px 15px;
+  }
+
+  .social-icons a {
+    width: 30px; /* Smaller icon size */
+    height: 30px;
+  }
+}
+
+
