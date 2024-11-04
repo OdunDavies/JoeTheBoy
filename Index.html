@@ -1,0 +1,231 @@
+import React, { useState, useEffect } from 'react';
+import { Play, Instagram, Twitter, Facebook, Mail, Menu, X, ChevronRight } from 'lucide-react';
+
+const VideoCard = ({ title, category, thumbnail }) => (
+  <div className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:scale-105">
+    <div className="aspect-video w-full bg-gray-800">
+      <img src="/api/placeholder/640/360" alt={title} className="h-full w-full object-cover" />
+      <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity group-hover:opacity-100">
+        <Play className="h-12 w-12 text-white" />
+      </div>
+    </div>
+    <div className="p-4">
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <p className="text-sm text-gray-600">{category}</p>
+    </div>
+  </div>
+);
+
+const PricingCard = ({ title, price, features }) => (
+  <div className="flex flex-col rounded-lg border p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+    <h3 className="mb-4 text-xl font-bold">{title}</h3>
+    <div className="mb-6 text-3xl font-bold">${price}</div>
+    <ul className="mb-6 flex-1 space-y-2">
+      {features.map((feature, index) => (
+        <li key={index} className="flex items-center">
+          <ChevronRight className="mr-2 h-4 w-4 text-blue-500" />
+          {feature}
+        </li>
+      ))}
+    </ul>
+    <button className="rounded-lg bg-blue-500 px-4 py-2 text-white transition-colors hover:bg-blue-600">
+      Book Now
+    </button>
+  </div>
+);
+
+const Website = () => {
+  const [currentPage, setCurrentPage] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const pages = {
+    home: (
+      <div className="space-y-12">
+        <div className="relative h-screen">
+          <img 
+            src="/api/placeholder/1920/1080" 
+            alt="Hero" 
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+            <div className="text-center text-white">
+              <h1 className="mb-4 text-5xl font-bold">Capturing Life's Moments</h1>
+              <p className="mb-8 text-xl">Professional Videography Services</p>
+              <button 
+                onClick={() => setCurrentPage('portfolio')}
+                className="rounded-lg bg-blue-500 px-6 py-3 text-lg transition-colors hover:bg-blue-600"
+              >
+                View My Work
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+    
+    portfolio: (
+      <div className="p-8">
+        <h2 className="mb-8 text-3xl font-bold">Portfolio</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <VideoCard title="Wedding Highlights" category="Weddings" />
+          <VideoCard title="Corporate Event" category="Business" />
+          <VideoCard title="Music Video" category="Entertainment" />
+          <VideoCard title="Travel Documentary" category="Travel" />
+          <VideoCard title="Product Launch" category="Commercial" />
+          <VideoCard title="Fashion Show" category="Fashion" />
+        </div>
+      </div>
+    ),
+
+    pricing: (
+      <div className="p-8">
+        <h2 className="mb-8 text-3xl font-bold">Pricing</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <PricingCard 
+            title="Basic Package"
+            price="999"
+            features={[
+              "4 Hours Coverage",
+              "Edited Highlight Video",
+              "Digital Delivery",
+              "2 Revisions"
+            ]}
+          />
+          <PricingCard 
+            title="Premium Package"
+            price="1999"
+            features={[
+              "8 Hours Coverage",
+              "Extended Highlight Video",
+              "Raw Footage Included",
+              "3 Revisions",
+              "Drone Footage"
+            ]}
+          />
+          <PricingCard 
+            title="Professional Package"
+            price="2999"
+            features={[
+              "Full Day Coverage",
+              "Feature Film Edit",
+              "Raw Footage Included",
+              "Unlimited Revisions",
+              "Drone Footage",
+              "2nd Videographer"
+            ]}
+          />
+        </div>
+      </div>
+    ),
+
+    about: (
+      <div className="p-8">
+        <div className="grid gap-8 md:grid-cols-2">
+          <div>
+            <h2 className="mb-4 text-3xl font-bold">About Me</h2>
+            <p className="mb-4 text-lg text-gray-600">
+              With over a decade of experience in videography, I've had the privilege 
+              of capturing countless precious moments and telling compelling stories 
+              through my lens.
+            </p>
+            <p className="mb-4 text-lg text-gray-600">
+              My passion for visual storytelling drives me to create unique and 
+              emotionally engaging content for each client.
+            </p>
+            <div className="mt-6 flex space-x-4">
+              <a href="#" className="text-gray-600 hover:text-blue-500">
+                <Instagram className="h-6 w-6" />
+              </a>
+              <a href="#" className="text-gray-600 hover:text-blue-500">
+                <Twitter className="h-6 w-6" />
+              </a>
+              <a href="#" className="text-gray-600 hover:text-blue-500">
+                <Facebook className="h-6 w-6" />
+              </a>
+              <a href="#" className="text-gray-600 hover:text-blue-500">
+                <Mail className="h-6 w-6" />
+              </a>
+            </div>
+          </div>
+          <div className="relative h-[400px]">
+            <img 
+              src="/api/placeholder/600/400" 
+              alt="Profile" 
+              className="h-full w-full rounded-lg object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    )
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="fixed z-50 w-full bg-white shadow">
+        <div className="mx-auto flex max-w-7xl items-center justify-between p-4">
+          <div 
+            className="cursor-pointer text-xl font-bold"
+            onClick={() => setCurrentPage('home')}
+          >
+            VideoArtistry
+          </div>
+          
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <X /> : <Menu />}
+          </button>
+
+          {/* Desktop Navigation */}
+          <div className="hidden space-x-6 md:flex">
+            {['home', 'portfolio', 'pricing', 'about'].map((page) => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                className={`capitalize ${
+                  currentPage === page 
+                    ? 'text-blue-500' 
+                    : 'text-gray-600 hover:text-blue-500'
+                }`}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="absolute w-full bg-white p-4 shadow-lg md:hidden">
+            {['home', 'portfolio', 'pricing', 'about'].map((page) => (
+              <button
+                key={page}
+                onClick={() => {
+                  setCurrentPage(page);
+                  setMenuOpen(false);
+                }}
+                className={`block w-full py-2 text-left capitalize ${
+                  currentPage === page 
+                    ? 'text-blue-500' 
+                    : 'text-gray-600 hover:text-blue-500'
+                }`}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+        )}
+      </nav>
+
+      {/* Main Content */}
+      <main className="pt-16">
+        {pages[currentPage]}
+      </main>
+    </div>
+  );
+};
+
+export default Website;
