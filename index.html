@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoArtistry - Professional Videographer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">VideoArtistry</div>
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#about">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Capturing Life's Moments</h1>
+                <p>Professional Videography Services</p>
+                <button class="cta-button">View My Work</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="section-title">My Work</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="wedding.jpg" alt="Wedding Video">
+                <div class="portfolio-overlay">
+                    <i class="fas fa-play fa-3x"></i>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="corporate.jpg" alt="Corporate Event">
+                <div class="portfolio-overlay">
+                    <i class="fas fa-play fa-3x"></i>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="music.jpg" alt="Music Video">
+                <div class="portfolio-overlay">
+                    <i class="fas fa-play fa-3x"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <h2 class="section-title">Pricing Plans</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Basic Package</h3>
+                <div class="price">$999</div>
+                <ul class="features">
+                    <li>4 Hours Coverage</li>
+                    <li>Edited Highlight Video</li>
+                    <li>Digital Delivery</li>
+                    <li>2 Revisions</li>
+                </ul>
+                <button class="cta-button">Book Now</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Premium Package</h3>
+                <div class="price">$1999</div>
+                <ul class="features">
+                    <li>8 Hours Coverage</li>
+                    <li>Extended Highlight Video</li>
+                    <li>Raw Footage Included</li>
+                    <li>3 Revisions</li>
+                    <li>Drone Footage</li>
+                </ul>
+                <button class="cta-button">Book Now</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Professional Package</h3>
+                <div class="price">$2999</div>
+                <ul class="features">
+                    <li>Full Day Coverage</li>
+                    <li>Feature Film Edit</li>
+                    <li>Raw Footage Included</li>
+                    <li>Unlimited Revisions</li>
+                    <li>Drone Footage</li>
+                    <li>2nd Videographer</li>
+                </ul>
+                <button class="cta-button">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div>
+                <p class="about-text">
+                    With over a decade of experience in videography, I've had the privilege 
+                    of capturing countless precious moments and telling compelling stories 
+                    through my lens. My passion for visual storytelling drives me to create 
+                    unique and emotionally engaging content for each client.
+                </p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <img src="profile.jpg" alt="About Me">
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h3>Book Your Session</h3>
+            <form id="booking-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Tell us about your project"></textarea>
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
